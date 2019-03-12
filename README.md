@@ -1,2 +1,2 @@
 # ELKMonitoring
-repo for the capstone project for Spring 2019.
+repo for my capstone project for Spring 2019.
