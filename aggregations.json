@@ -1,0 +1,134 @@
+GET vehicles/cars/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {"price": {"order": "desc"}}
+  ]
+}
+
+GET vehicles/cars/_search
+{
+  "aggs": {
+    "popular_cars": {
+      "terms": {
+        "field": "make.keyword"
+      }
+    }
+  }
+}
+
+GET vehicles/cars/_search
+{
+  "size": 0,
+  
+  "aggs": {
+    "popular_cars": {
+      "terms": {
+        "field": "make.keyword"
+      },
+      "aggs": {
+        "avg_price": {
+          "avg": {
+            "field": "price"
+          }
+        },
+        "max_price": {
+          "max": {
+            "field": "price"
+          }
+        },
+        "min_price": {
+          "min": {
+            "field": "price"
+          }
+        }
+      }
+    }
+  }
+}
+
+GET vehicles/cars/_search
+{
+  "size": 0,
+  
+  "aggs": {
+    "popular_cars": {
+      "terms": {
+        "field": "make.keyword"
+      },
+      "aggs": {
+        "stats_on_price": {
+          "stats": {
+            "field": "price"
+          }
+        }
+      }
+    }
+  }
+}
+
+GET vehicles/cars/_search
+{
+  "size": 0,
+  
+  "aggs": {
+    "popular_cars": {
+      "terms": {
+        "field": "make.keyword"
+      },
+      "aggs": {
+        "sold_date_ranges": {
+          "range": {
+            "field": "sold",
+            "ranges": [
+              {"from": "2016-01-01","to": "2016-06-01"},
+              {"from":"2016-06-01", "to": "2017-06-07"}
+            ]
+          },
+          "aggs": {
+            "avg_price": {
+              "avg": {
+                "field": "price"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+GET vehicles/cars/_search
+{
+  "size": 0,
+  
+  "aggs": {
+    "car_conditions": {
+      "terms": {
+        "field": "condition.keyword"
+      },
+      "aggs": {
+        "stats_on_all_price": {
+          "stats": {
+            "field": "price"
+          }
+        },
+        "make" : {
+          "terms": {
+            "field": "make.keyword"
+          },
+          "aggs": {
+            "stats_on_make_price": {
+              "stats": {
+                "field": "price"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
