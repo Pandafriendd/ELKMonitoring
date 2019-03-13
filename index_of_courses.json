@@ -65,8 +65,7 @@ PUT /courses/classroom/5
     "professor": {
         "name": "Sebastian Hern",
         "department": "art",
-        "facutly_type": "part-time",
-        "email": ""
+        "facutly_type": "part-time"
         },
     "students_enrolled": 47,
     "course_publish_date": "2013-01-27",
