@@ -1,0 +1,113 @@
+GET courses/_search
+{
+  "query": {
+    "match_all":{}
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "match": {
+      "name": "computer"
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "exists": {
+      "field": "professor.email"
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "match": {
+      "name": "computer",
+      "room": "C8"
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {"match": {"name": "computer"}},
+        {"match": {"room": "c8"}}
+      ]
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {"match": {"name": "computer"}},
+        {"match": {"room": "c8"}}
+      ],
+      "must_not": [
+        {"match": {"professor.name": "bill"}}  
+      ]
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        {"match": {"name": "computer"}}
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "multi_match": {
+      "fields": ["name", "professor.department"],
+      "query": "finance"
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "match_phrase": {
+      "course_description": "advanced course"
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "match_phrase_prefix": {
+      "course_description": "advanced cou"
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "range": {
+      "students_enrolled": {
+        "gte": 10,
+        "lte": 30
+      }
+    }
+  }
+}
