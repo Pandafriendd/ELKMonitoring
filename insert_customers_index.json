@@ -1,0 +1,77 @@
+DELETE customers
+
+GET customers
+
+PUT customers 
+{
+  "mappings": {
+    "online": {
+      "properties": {
+        "name": {
+          "type": "text",
+          "analyzer": "standard"
+        },
+        "gender": {
+          "type": "text",
+          "analyzer": "standard"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "total_spend": {
+          "type": "float"
+        },
+        "is_new": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "settings": {
+    "number_of_replicas": 1,
+    "number_of_shards": 2
+  }
+}
+
+PUT customers/online/001
+{
+  "name": "Xiao ming",
+  "gender": "male",
+  "age": 15,
+  "total_spend": 100.20,
+  "is_new": false
+}
+
+GET customers/online/001
+
+PUT customers/online/002
+{
+  "name": "Xiao hong",
+  "gender": "female",
+  "address": "3900 N Charles Street",
+  "age": 15,
+  "total_spend": 100.20,
+  "is_new": false
+}
+
+PUT customers/_mappings/online 
+{
+  "dynamic": false
+}
+PUT customers/_mappings/online 
+{
+  "dynamic": "strict"
+}
+
+
+PUT customers/online/003
+{
+  "name": "Xiao li",
+  "gender": "female",
+  "address": "3900 N Charles Street",
+  "age": 20,
+  "total_spend": 100.20,
+  "is_new": false,
+  "is_stupid": false
+}
+GET customers/online/003
