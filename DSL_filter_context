@@ -1,0 +1,27 @@
+GET courses/_search
+{
+  "query": {
+    "match": {
+      "name": "computer"
+    }
+  }
+}
+
+GET courses/_search
+{
+  "query": {
+    "bool": {
+      "filter": {
+        "bool": {
+          "must": [
+            {"match": {"name": "computer"}},
+            {"match": {"professor.name": "gregg"}}
+          ],
+          "must_not": [
+            {"match": {"room": "c8"}}  
+          ]
+        }
+      }
+    }
+  }
+}
