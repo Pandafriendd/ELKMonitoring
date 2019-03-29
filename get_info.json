@@ -1,0 +1,12 @@
+GET filebeat-6.6.2-2014.05.28/_search
+
+GET filebeat-6.6.2-2014.05.28/_count
+
+GET logstash-*/_count
+
+GET filebeat-6.6.2-2014.05.28/_stats
+
+GET logstash-*/_stats
+
+GET logstash-2014.05.28/_stats?pretty=true
+POST logstash-2014.05.28/_optimize?max_num_segments=1
