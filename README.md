@@ -8,4 +8,4 @@
 ```
 bin/logstash -f test9.conf
 ```
-⋅⋅⋅This command will index crimeserver threat data into Elasticsearch. Mention that you should use your own api key to access the data. To create your api key, visit [here](https://community.blueliv.com/#!/get-started/).
+This command will index crimeserver threat data into Elasticsearch. Mention that you should use your own api key to access the data. To create your api key, visit [here](https://community.blueliv.com/#!/get-started/).
