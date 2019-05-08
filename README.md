@@ -4,8 +4,16 @@
 ## Prepare threat data feed
 * **malicious.yaml**. Download it from our repo.
 * Prepare threat data feed: Blueliv
-⋅⋅⋅Indexing the threat data into Elasticsearch by Logstash. Run the following command:
+Indexing the threat data into Elasticsearch by Logstash. Run the following command:
 ```
 bin/logstash -f test9.conf
 ```
 This command will index crimeserver threat data into Elasticsearch. Mention that you should use your own api key to access the data. To create your api key, visit [here](https://community.blueliv.com/#!/get-started/).
+## Config Logstash
+To config Logstash, run this command:
+```
+bin/logstash -f test10.conf
+```
+Note that you need to config the directory of your log data files based on your setups. 
+## Visualization of threat data and log data
+Here are some example dashboards we create. You can create and customize your own depending on your need. 
