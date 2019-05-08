@@ -17,3 +17,7 @@ bin/logstash -f test10.conf
 Note that you need to config the directory of your log data files based on your setups. 
 ## Visualization of threat data and log data
 Here are some example dashboards we create. You can create and customize your own depending on your need. 
+Threat Data: 
+![alt text](https://github.com/Pandafriendd/ELKMonitoring/blob/master/images/kibana7.png "Crimeserver Visualization")
+Nginx Server: 
+![alt text](https://github.com/Pandafriendd/ELKMonitoring/blob/master/images/kibana8.png "Nginx Server Visualization")
