@@ -1,5 +1,5 @@
 # Introduction and Set-ups for the Capstone Project
-## requirements
+## Requirements
 * Install Logstash, Elasticsearch, and Kibana. We are using version 6.6 for all these components.
 ## Prepare threat data feed
 * **malicious.yaml**. Download it from our repo.
